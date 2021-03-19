@@ -51,6 +51,7 @@ public abstract class Multireddit implements Created, Referenceable<MultiredditR
      * A hex-formatted hex string, like `#CEE3F8`. This color is primarily used when viewing the multireddit on the
      * mobile site.
      */
+    @Nullable
     @Json(name = "key_color") public abstract String getKeyColor();
 
     /** An absolute URL to an icon based on {@link #getIconName()}, if any */
@@ -79,6 +80,7 @@ public abstract class Multireddit implements Created, Referenceable<MultiredditR
     public abstract String getVisibility();
 
     /** Either 'classic' or 'fresh' */
+    @Nullable
     @Json(name = "weighting_scheme") public abstract String getWeightingScheme();
 
     @NotNull
