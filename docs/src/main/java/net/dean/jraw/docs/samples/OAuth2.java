@@ -1,6 +1,7 @@
 package net.dean.jraw.docs.samples;
 
 import net.dean.jraw.RedditClient;
+import net.dean.jraw.SuspendedAccountException;
 import net.dean.jraw.docs.CodeSample;
 import net.dean.jraw.http.NetworkAdapter;
 import net.dean.jraw.http.OkHttpNetworkAdapter;
@@ -47,7 +48,11 @@ final class OAuth2 {
                     RedditClient reddit = helper.onUserChallenge(url);
 
                     // We now have access to an authenticated RedditClient! Test it out:
-                    Account me = reddit.me().about();
+                    try {
+                        Account me = reddit.me().about();
+                    } catch (SuspendedAccountException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         });

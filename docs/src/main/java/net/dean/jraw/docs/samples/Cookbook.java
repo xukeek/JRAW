@@ -1,6 +1,7 @@
 package net.dean.jraw.docs.samples;
 
 import net.dean.jraw.RedditClient;
+import net.dean.jraw.SuspendedAccountException;
 import net.dean.jraw.docs.CodeSample;
 import net.dean.jraw.models.*;
 import net.dean.jraw.pagination.BarebonesPaginator;
@@ -145,7 +146,7 @@ final class Cookbook {
     }
 
     @CodeSample
-    void basicInfo() {
+    void basicInfo() throws SuspendedAccountException {
         Account me = redditClient.me().about();
         Account someoneElse = redditClient.user("Shitty_Watercolour").about();
     }
